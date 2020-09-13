@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         //Set Min and Max date for date Picker
         datePickerDialog.getDatePicker().setMinDate(oneYearBefore);
         datePickerDialog.getDatePicker().setMaxDate(oneYearAfter);
+        //Set Message a title for date picker
+        datePickerDialog.setMessage("Select Date");
         datePickerDialog.show();
     }
 
