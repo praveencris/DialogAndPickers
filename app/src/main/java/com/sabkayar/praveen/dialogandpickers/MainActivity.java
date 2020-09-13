@@ -1,7 +1,9 @@
 package com.sabkayar.praveen.dialogandpickers;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -66,5 +68,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAlertDialog(View view) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_email)
+                .setMessage("Hi Welcome to Alert Dialog Prompt!")
+                .setCancelable(false)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this,"Pressed Cancel!",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this,"Pressed OK!",Toast.LENGTH_SHORT).show();
+                    }
+                });
+           AlertDialog dialog=builder.create();
+           dialog.show();
     }
 }
