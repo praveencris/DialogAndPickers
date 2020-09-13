@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DialogAndPickers</string>
+    <string name="time_picker">Time Picker</string>
+    <string name="date_picker">Date Picker</string>
+    <string name="alert_dialog">Alert Dialog</string>
+    <string name="action_add">Add</string>
 </resources>

@@ -5,11 +5,14 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAlertDialog(View view) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle("Alert Dialog")
                 .setIcon(android.R.drawable.ic_dialog_email)
                 .setMessage("Hi Welcome to Alert Dialog Prompt!")
@@ -76,16 +79,31 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this,"Pressed Cancel!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Pressed Cancel!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this,"Pressed OK!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Pressed OK!", Toast.LENGTH_SHORT).show();
                     }
                 });
-           AlertDialog dialog=builder.create();
-           dialog.show();
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId=item.getItemId();
+        if(itemId==R.id.action_add){
+            Toast.makeText(this,"Add Menu Option Clicked!",Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
