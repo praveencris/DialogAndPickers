@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }, hour, minute, false);
 
+        //Set Title to Time Picker Dialog
+        timePickerDialog.setMessage("Set Time");
+
         timePickerDialog.show();
     }
 
